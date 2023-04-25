@@ -12,8 +12,7 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-
-    @Test
+    @Test (enabled = true, priority = 0, description = "Login with invalid email and valid password")
     public void loginInvalidEmailValidPasswordTest(){
 
         navigateToPage();
@@ -22,9 +21,9 @@ public class LoginTests extends BaseTest {
         clickSubmit();
 
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://bbb.testpro.io/
-
     }
-    @Test
+
+    @Test (enabled = true, priority = 1, description = "Login with valid email and valid password")
     public void loginValidEmailPasswordTest(){
         navigateToPage();
         provideEmail("demo@class.com");
@@ -32,7 +31,8 @@ public class LoginTests extends BaseTest {
         clickSubmit();
         isAvatarDisplayed();
     }
-    @Test
+
+    @Test (enabled = true, priority = 3, description = "Login with valid email and empty password")
     public static void loginValidEmailEmptyPasswordTest() {
         navigateToPage();
         provideEmail("demo@class.com");
@@ -41,11 +41,9 @@ public class LoginTests extends BaseTest {
 
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://bbb.testpro.io/
     }
-
     public static void isAvatarDisplayed() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
         Assert.assertTrue(avatarIcon.isDisplayed());
 //        Assert.assertEquals(avatarIcon.isDisplayed(), true);
     }
-
 }
