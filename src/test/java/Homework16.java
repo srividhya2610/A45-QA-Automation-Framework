@@ -13,6 +13,7 @@ public class Homework16 extends BaseTest{
 
     @Test
     public void registrationNavigation() {
+        //Commit again
         //Added ChromeOptions
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
