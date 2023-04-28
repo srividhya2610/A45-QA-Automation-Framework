@@ -13,7 +13,7 @@ public class BaseTest {
 
     public static WebDriver driver = null;
 
-    public static String url = "";
+    public static String url = "https://bbb.testpro/io";
 
     @BeforeSuite
     static void setupClass() {
