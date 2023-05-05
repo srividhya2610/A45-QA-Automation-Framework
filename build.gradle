@@ -17,7 +17,7 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/Testhomework18.xml"
+        suites "src/test/resources/Regression.xml"
     }
 }
 
