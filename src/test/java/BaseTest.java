@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -15,7 +16,7 @@ public class BaseTest {
     public static WebDriver driver = null;
     public static WebDriverWait wait;
     public static String url = "";
-    public static WebDriver actions;
+    public static Actions actions;
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -41,6 +42,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        actions = new Actions(driver);
         url = BaseURL;
         navigateToPage();
     }
