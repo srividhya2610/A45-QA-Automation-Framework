@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -13,7 +14,8 @@ public class BaseTest {
 
     public static WebDriver driver = null;
 
-    public static String url = "https://bbb.testpro/io";
+    public static String url = "";
+    public static WebDriverWait wait;
 
     @BeforeSuite
     static void setupClass() {
@@ -40,6 +42,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         navigateToPage();
     }
     @AfterMethod
