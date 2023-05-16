@@ -16,8 +16,8 @@ public class HomePage extends BasePage {
     @FindBy(css = "[name='name']")
     private WebElement playlistNameField;
 
-    @FindBy(xpath = "//a[text()="+"playlistName"+"']")
-    private WebElement newPlaylist;
+//    @FindBy(xpath = "//a[text()="+"playlistName"+"']")
+//    private WebElement newPlaylist;
 
     //By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
 
@@ -33,7 +33,9 @@ public class HomePage extends BasePage {
 
     public boolean doesPlaylistExist(String playlistName) {
         //By newPlaylist = By.xpath("//a[text()="+playlistName+"']");
-        newPlaylist.sendKeys(playlistName);
-        return newPlaylist.isDisplayed();
+       // newPlaylist.sendKeys(playlistName);
+        //return newPlaylist.isDisplayed();
+        By newPlaylist = By.xpath("//a[text()="+playlistName+"']");
+        return findElement(newPlaylist).isDisplayed();
     }
 }
